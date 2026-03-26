@@ -177,7 +177,7 @@ h4 { font-size: 1rem; font-weight: 600; }
 }
 
 .hero-layout {
-  position: relative; z-index: 1; display: grid; grid-template-columns: 55% 45%; gap: 48px; align-items: center; min-height: 100vh; padding: 140px 60px 80px; width: 100%; max-width: 1340px; margin: 0 auto;
+  position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; min-height: 100vh; padding: 140px 60px 80px; width: 100%; max-width: 1340px; margin: 0 auto;
 }
 .hero-content { position: relative; z-index: 1; max-width: 800px; }
 .hero-badge {
@@ -261,7 +261,7 @@ h4 { font-size: 1rem; font-weight: 600; }
 
 /* ===== SERVICES ===== */
 .services { padding: 120px 0; }
-.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .service-card {
   background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 36px 32px;
   position: relative; overflow: hidden; transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s; cursor: pointer;
