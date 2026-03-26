@@ -1,0 +1,60 @@
+/* ===== LEGAL PAGE STYLES ===== */
+.legal-hero {
+  padding: 200px 0 120px;
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+}
+.legal-hero-bg {
+  position: absolute; inset: 0; background-size: cover; background-position: center; z-index: 0; opacity: 0.25; filter: grayscale(50%);
+}
+.legal-hero-overlay {
+  position: absolute; inset: 0; background: linear-gradient(180deg, var(--bg) 0%, rgba(10,12,16,0.6) 50%, var(--bg) 100%); z-index: 1;
+}
+.legal-hero-grid {
+  position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 40px 40px; z-index: 2; pointer-events: none;
+}
+.legal-hero-orb {
+  position: absolute; width: 600px; height: 600px; border-radius: 50%; filter: blur(120px); z-index: 1; opacity: 0.25; mix-blend-mode: screen; pointer-events: none;
+}
+.legal-orb1 { top: -200px; left: -100px; background: rgba(124,58,237,0.7); }
+.legal-orb2 { bottom: -200px; right: -100px; background: rgba(6,182,212,0.7); }
+
+.legal-hero .container {
+  position: relative; z-index: 5;
+}
+.legal-hero h1 { margin-bottom: 16px; }
+.legal-hero p { color: var(--muted); font-size: 1.1rem; }
+
+.legal-content { padding: 80px 0 120px; }
+.legal-card {
+  max-width: 900px; margin: 0 auto;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 24px; padding: 60px;
+  box-shadow: 0 40px 100px rgba(0,0,0,0.3);
+}
+
+.legal-section { margin-bottom: 48px; }
+.legal-section:last-child { margin-bottom: 0; }
+.legal-section h2 { 
+  font-size: 1.5rem; color: var(--text); margin-bottom: 20px; 
+  display: flex; align-items: center; gap: 12px;
+}
+.legal-section h2::before {
+  content: ''; width: 4px; height: 24px; background: var(--grad); border-radius: 4px;
+}
+
+.legal-section p, .legal-section ul { 
+  color: var(--muted); line-height: 1.8; font-size: 1.05rem; margin-bottom: 16px; 
+}
+.legal-section ul { padding-left: 20px; }
+.legal-section li { margin-bottom: 12px; }
+
+.legal-section strong { color: var(--text); }
+
+@media (max-width: 768px) {
+  .legal-card { padding: 32px 24px; border-radius: 16px; }
+  .legal-hero { padding: 120px 0 60px; }
+  .legal-section h2 { font-size: 1.3rem; }
+}

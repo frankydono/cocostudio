@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 120" width="580" height="120">
+
+  <!-- transparent background — no rect fill -->
+
+  <!-- "cocostudi" — outline style, white stroke, no fill -->
+  <text x="4" y="102"
+    font-family="'Arial Rounded MT Bold', 'Arial Black', Arial, sans-serif"
+    font-weight="900"
+    font-size="96"
+    fill="none"
+    stroke="white"
+    stroke-width="3.5"
+    letter-spacing="-2">cocostudi</text>
+
+  <!-- ===== CAMERA ON TRIPOD (replaces "i" dot) ===== -->
+
+  <!-- Tripod vertical pole -->
+  <line x1="383" y1="34" x2="383" y2="64" stroke="white" stroke-width="3.5" stroke-linecap="round"/>
+  <!-- Tripod left leg -->
+  <line x1="383" y1="64" x2="363" y2="104" stroke="white" stroke-width="3" stroke-linecap="round"/>
+  <!-- Tripod right leg -->
+  <line x1="383" y1="64" x2="403" y2="104" stroke="white" stroke-width="3" stroke-linecap="round"/>
+  <!-- Tripod center leg -->
+  <line x1="383" y1="64" x2="383" y2="104" stroke="white" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Camera body -->
+  <rect x="358" y="6" width="50" height="30" rx="6"
+    fill="none" stroke="white" stroke-width="3"/>
+  <!-- Viewfinder bump top -->
+  <rect x="370" y="0" width="14" height="8" rx="3"
+    fill="none" stroke="white" stroke-width="2.5"/>
+  <!-- Strap lug left -->
+  <rect x="356" y="10" width="4" height="8" rx="2" fill="none" stroke="white" stroke-width="2"/>
+  <!-- Strap lug right -->
+  <rect x="406" y="10" width="4" height="8" rx="2" fill="none" stroke="white" stroke-width="2"/>
+  <!-- Lens outer ring -->
+  <circle cx="383" cy="21" r="11" fill="none" stroke="white" stroke-width="2.5"/>
+  <!-- Lens inner ring -->
+  <circle cx="383" cy="21" r="6.5" fill="none" stroke="white" stroke-width="2"/>
+  <!-- Aperture cross lines inside lens -->
+  <line x1="383" y1="14.5" x2="383" y2="27.5" stroke="white" stroke-width="1.5"/>
+  <line x1="376.5" y1="17.5" x2="389.5" y2="24.5" stroke="white" stroke-width="1.5"/>
+  <line x1="389.5" y1="17.5" x2="376.5" y2="24.5" stroke="white" stroke-width="1.5"/>
+  <!-- Shutter button -->
+  <circle cx="398" cy="10" r="3.5" fill="none" stroke="white" stroke-width="2"/>
+
+  <!-- ===== APERTURE "o" (solid white circle with dark blades) ===== -->
+  <circle cx="434" cy="78" r="25" fill="white"/>
+  <g transform="translate(434,78)">
+    <path d="M0,-15 C8,-7 8,1 0,3 C-8,1 -8,-7 0,-15Z" fill="#050508" transform="rotate(0)"/>
+    <path d="M0,-15 C8,-7 8,1 0,3 C-8,1 -8,-7 0,-15Z" fill="#050508" transform="rotate(60)"/>
+    <path d="M0,-15 C8,-7 8,1 0,3 C-8,1 -8,-7 0,-15Z" fill="#050508" transform="rotate(120)"/>
+    <path d="M0,-15 C8,-7 8,1 0,3 C-8,1 -8,-7 0,-15Z" fill="#050508" transform="rotate(180)"/>
+    <path d="M0,-15 C8,-7 8,1 0,3 C-8,1 -8,-7 0,-15Z" fill="#050508" transform="rotate(240)"/>
+    <path d="M0,-15 C8,-7 8,1 0,3 C-8,1 -8,-7 0,-15Z" fill="#050508" transform="rotate(300)"/>
+    <circle cx="0" cy="0" r="5.5" fill="#050508"/>
+  </g>
+
+  <!-- ===== PERIOD DOT ===== -->
+  <circle cx="471" cy="99" r="8" fill="none" stroke="white" stroke-width="3.5"/>
+
+</svg>
