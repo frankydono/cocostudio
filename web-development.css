@@ -79,12 +79,12 @@
 
 .wd-tags { display: flex; flex-wrap: wrap; gap: 10px; }
 .wd-tags span {
-  background: rgba(6,182,212,0.08); border: 1px solid rgba(6,182,212,0.2);
-  color: var(--accent2); padding: 6px 16px; border-radius: 50px;
-  font-size: 0.8rem; font-weight: 600;
-  transition: background 0.2s, border-color 0.2s;
+  background: rgba(255,102,196,0.1); border: 1px solid rgba(255,102,196,0.2);
+  color: #FF66C4; padding: 6px 16px; border-radius: 50px;
+  font-size: 0.8rem; font-weight: 700;
+  transition: all 0.3s ease;
 }
-.wd-tags span:hover { background: rgba(6,182,212,0.15); border-color: rgba(6,182,212,0.4); }
+.wd-tags span:hover { background: rgba(255,102,196,0.25); border-color: #FF66C4; }
 
 /* Media */
 .wd-block-media { position: relative; }

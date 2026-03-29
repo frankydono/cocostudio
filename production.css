@@ -78,12 +78,12 @@
 
 .pv-tags { display: flex; flex-wrap: wrap; gap: 10px; }
 .pv-tags span {
-  background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.2);
-  color: var(--accent3); padding: 6px 16px; border-radius: 50px;
-  font-size: 0.8rem; font-weight: 600;
-  transition: background 0.2s, border-color 0.2s;
+  background: rgba(255,102,196,0.1); border: 1px solid rgba(255,102,196,0.2);
+  color: #FF66C4; padding: 6px 16px; border-radius: 50px;
+  font-size: 0.8rem; font-weight: 700;
+  transition: all 0.3s ease;
 }
-.pv-tags span:hover { background: rgba(245,158,11,0.15); border-color: rgba(245,158,11,0.4); }
+.pv-tags span:hover { background: rgba(255,102,196,0.25); border-color: #FF66C4; }
 
 /* Media */
 .pv-block-media { position: relative; }

@@ -34,11 +34,11 @@ if (reveals.length) {
 }
 
 // ===== COUNTER ANIMATION =====
-const heroStats = document.querySelector('.hero-stats');
-if (heroStats) {
+const allStatSections = document.querySelectorAll('.hero-stats, .ab-stats');
+if (allStatSections.length) {
   function animateCounter(el) {
     const target = parseInt(el.dataset.target);
-    if (target === 0) { el.textContent = 0; return; }
+    if (!target) { el.textContent = el.dataset.target || 0; return; }
     const duration = 1800;
     const step = target / (duration / 16);
     let current = 0;
@@ -51,12 +51,12 @@ if (heroStats) {
   const statsObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.querySelectorAll('.stat-num').forEach(animateCounter);
+        entry.target.querySelectorAll('.stat-num, .ab-stat-num').forEach(animateCounter);
         statsObserver.unobserve(entry.target);
       }
     });
   }, { threshold: 0.1 });
-  statsObserver.observe(heroStats);
+  allStatSections.forEach(sec => statsObserver.observe(sec));
 }
 
 // ===== CONTACT FORM =====

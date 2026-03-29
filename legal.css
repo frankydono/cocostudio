@@ -42,7 +42,7 @@
   display: flex; align-items: center; gap: 12px;
 }
 .legal-section h2::before {
-  content: ''; width: 4px; height: 24px; background: var(--grad); border-radius: 4px;
+  content: ''; width: 4px; height: 24px; background: #AFE43B; border-radius: 4px;
 }
 
 .legal-section p, .legal-section ul { 

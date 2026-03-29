@@ -19,7 +19,7 @@
 .ent-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(6,182,212,0.12) 0%, rgba(124,58,237,0.12) 100%);
+  background: linear-gradient(135deg, rgba(var(--accent2-rgb),0.12) 0%, rgba(var(--accent-rgb),0.12) 100%);
 }
 .ent-hero-grid {
   position: absolute;
@@ -159,18 +159,18 @@
   gap: 10px;
 }
 .ent-tags span {
-  background: rgba(6,182,212,0.08);
-  border: 1px solid rgba(6,182,212,0.2);
-  color: var(--accent2);
+  background: rgba(255,102,196,0.1);
+  border: 1px solid rgba(255,102,196,0.2);
+  color: #FF66C4;
   padding: 6px 16px;
   border-radius: 50px;
   font-size: 0.8rem;
-  font-weight: 600;
-  transition: background 0.2s, border-color 0.2s;
+  font-weight: 700;
+  transition: all 0.3s ease;
 }
 .ent-tags span:hover {
-  background: rgba(6,182,212,0.15);
-  border-color: rgba(6,182,212,0.4);
+  background: rgba(255,102,196,0.25);
+  border-color: #FF66C4;
 }
 
 /* Media */
@@ -217,17 +217,17 @@
 .ent-media-glow {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(124,58,237,0.12), transparent 60%);
+  background: linear-gradient(135deg, rgba(var(--accent2-rgb),0.12), transparent 60%);
   pointer-events: none;
 }
 .ent-media-glow--cyan {
-  background: linear-gradient(135deg, rgba(6,182,212,0.12), transparent 60%);
+  background: linear-gradient(135deg, rgba(var(--accent-rgb),0.12), transparent 60%);
 }
 .ent-media-glow--amber {
-  background: linear-gradient(135deg, rgba(245,158,11,0.12), transparent 60%);
+  background: linear-gradient(135deg, rgba(var(--accent2-rgb),0.12), transparent 60%);
 }
 .ent-media-glow--purple {
-  background: linear-gradient(135deg, rgba(124,58,237,0.15), transparent 60%);
+  background: linear-gradient(135deg, rgba(var(--accent2-rgb),0.15), transparent 60%);
 }
 
 /* ---- CTA ---- */
@@ -242,7 +242,7 @@
   width: 900px;
   height: 900px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(6,182,212,0.1), transparent 65%);
+  background: radial-gradient(circle, rgba(var(--accent2-rgb),0.1), transparent 65%);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);

@@ -78,12 +78,12 @@
 
 .pm-tags { display: flex; flex-wrap: wrap; gap: 10px; }
 .pm-tags span {
-  background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.2);
-  color: #10b981; padding: 6px 16px; border-radius: 50px;
-  font-size: 0.8rem; font-weight: 600;
-  transition: background 0.2s, border-color 0.2s;
+  background: rgba(255,102,196,0.1); border: 1px solid rgba(255,102,196,0.2);
+  color: #FF66C4; padding: 6px 16px; border-radius: 50px;
+  font-size: 0.8rem; font-weight: 700;
+  transition: all 0.3s ease;
 }
-.pm-tags span:hover { background: rgba(16,185,129,0.15); border-color: rgba(16,185,129,0.4); }
+.pm-tags span:hover { background: rgba(255,102,196,0.25); border-color: #FF66C4; }
 
 /* Media */
 .pm-block-media { position: relative; }
