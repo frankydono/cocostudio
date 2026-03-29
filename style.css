@@ -54,8 +54,8 @@ h4 { font-size: 1rem; font-weight: 700; }
   background: var(--accent2); /* Lime Green */
   color: #000; /* High contrast black text for modern look */
   padding: 12px 30px; border-radius: 10px;
-  font-family: var(--font-ui); text-transform: uppercase;
-  font-weight: 700; font-size: 0.9rem; text-decoration: none;
+  font-family: var(--font2); text-transform: uppercase;
+  font-weight: 800; font-size: 0.9rem; text-decoration: none;
   letter-spacing: 0.1em; border: none; cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 4px 15px rgba(var(--accent2-rgb), 0.2);
@@ -75,8 +75,8 @@ h4 { font-size: 1rem; font-weight: 700; }
   display: inline-flex; align-items: center; gap: 8px;
   background: transparent; color: var(--text);
   padding: 14px 28px; border-radius: 50px;
-  font-family: var(--font-ui); text-transform: uppercase;
-  font-weight: 600; font-size: 0.95rem; text-decoration: none;
+  font-family: var(--font2); text-transform: uppercase;
+  font-weight: 800; font-size: 0.95rem; text-decoration: none;
   border: 1px solid var(--border);
   transition: border-color 0.2s, background 0.2s;
 }
@@ -90,8 +90,8 @@ h4 { font-size: 1rem; font-weight: 700; }
   display: inline-flex; align-items: center;
   background: var(--accent2); color: #000;
   padding: 8px 24px; border-radius: 8px;
-  font-family: var(--font-ui); text-transform: uppercase;
-  font-weight: 700; font-size: 0.8rem; text-decoration: none;
+  font-family: var(--font2); text-transform: uppercase;
+  font-weight: 800; font-size: 0.8rem; text-decoration: none;
   letter-spacing: 0.05em;
   transition: all 0.3s ease;
 }
@@ -455,8 +455,11 @@ h4 { font-size: 1rem; font-weight: 700; }
   .container { padding: 0 32px; }
 }
 
+@media (max-width: 600px) {
+  .hero-logo-tagline { font-size: 0.95rem; letter-spacing: 0.15em; white-space: nowrap; }
+}
 @media (max-width: 400px) {
-  .hero-logo-tagline { font-size: 0.9rem; letter-spacing: 0.1em; }
+  .hero-logo-tagline { font-size: 0.82rem; letter-spacing: 0.1em; }
 }
 @media (max-width: 600px) {
   .pr-hero-content,
