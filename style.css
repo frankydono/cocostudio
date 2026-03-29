@@ -17,7 +17,7 @@
   --accent3-rgb: 255, 102, 196;
   --font: 'Inter', sans-serif;
   --font2: 'League Spartan', sans-serif;
-  --font-ui: 'Oswald', sans-serif;
+  --font-ui: 'League Spartan', sans-serif;
 }
 
 html { scroll-behavior: smooth; overflow-x: hidden; }
@@ -177,12 +177,8 @@ h4 { font-size: 1rem; font-weight: 700; }
   position: relative; overflow: hidden; padding: 0;
 }
 .hero-bg { position: absolute; inset: 0; pointer-events: none; }
-.grid-overlay {
-  display: none;
-}
 [class*="-hero-grid"], .grid-overlay {
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0px, transparent 90px, black 91px) !important;
-  mask-image: linear-gradient(to bottom, transparent 0px, transparent 90px, black 91px) !important;
+  display: none !important;
 }
 .orb {
   position: absolute; border-radius: 50%;
@@ -219,7 +215,7 @@ h4 { font-size: 1rem; font-weight: 700; }
 }
 .stat-num {
   font-family: var(--font2); font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: 800;
-  color: #AFE43B !important; line-height: 1; display: inline-flex; align-items: baseline; gap: 2px;
+  color: var(--text) !important; line-height: 1; display: inline-flex; align-items: baseline; gap: 2px;
 }
 .stat-num::after { content: '+'; font-size: 0.5em; opacity: 0.6; font-weight: 400; color: var(--text); }
 .stat p { color: var(--muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; margin-top: 6px; }

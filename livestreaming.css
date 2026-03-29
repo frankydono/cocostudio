@@ -116,12 +116,12 @@
 
 .ls-tags { display: flex; flex-wrap: wrap; gap: 10px; }
 .ls-tags span {
-  background: rgba(255,102,196,0.1); border: 1px solid rgba(255,102,196,0.2);
-  color: #FF66C4; padding: 6px 16px; border-radius: 50px;
+  background: rgba(12,192,223,0.1); border: 1px solid rgba(12,192,223,0.2);
+  color: #0CC0DF; padding: 6px 16px; border-radius: 50px;
   font-size: 0.8rem; font-weight: 700;
   transition: all 0.3s ease;
 }
-.ls-tags span:hover { background: rgba(255,102,196,0.25); border-color: #FF66C4; }
+.ls-tags span:hover { background: rgba(12,192,223,0.25); border-color: #0CC0DF; }
 
 /* Media */
 .ls-block-media { position: relative; }
