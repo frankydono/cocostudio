@@ -18,6 +18,7 @@
   --font: 'Inter', sans-serif;
   --font2: 'League Spartan', sans-serif;
   --font-ui: 'League Spartan', sans-serif;
+  --grad: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
 }
 
 html { scroll-behavior: smooth; overflow-x: hidden; }
@@ -215,11 +216,12 @@ h4 { font-size: 1rem; font-weight: 700; }
   background: linear-gradient(to bottom, transparent, var(--border), transparent);
 }
 .stat-num {
-  font-family: var(--font2); font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: 800;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2.5rem, 4.5vw, 3.8rem); font-weight: 700;
   color: var(--text) !important; line-height: 1; display: inline-flex; align-items: baseline; gap: 2px;
 }
 .stat-num::after { content: '+'; font-size: 0.5em; opacity: 0.6; font-weight: 400; color: var(--text); }
-.stat p { color: var(--muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; margin-top: 6px; }
+.stat p { color: var(--muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 500; margin-top: 6px; }
 
 .hero-logo-wrap {
   position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px;

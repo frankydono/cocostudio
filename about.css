@@ -91,11 +91,12 @@
   background: linear-gradient(to bottom, transparent, var(--border), transparent);
 }
 .ab-stat-num {
-  font-family: var(--font2); font-size: clamp(2.2rem, 3.5vw, 3.2rem); font-weight: 800;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2.2rem, 4vw, 3.5rem); font-weight: 700;
   color: var(--accent); line-height: 1; display: inline-flex; align-items: baseline; gap: 2px;
 }
 .ab-stat-num::after { content: '+'; font-size: 0.5em; opacity: 0.5; font-weight: 400; color: var(--text); }
-.ab-stat p { color: var(--muted); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; margin-top: 6px; }
+.ab-stat p { color: var(--muted); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 500; margin-top: 6px; }
 
 /* ---- COMPANY SECTION ---- */
 .ab-company { padding: 120px 0; background: var(--bg2); position: relative; overflow: hidden; }

@@ -195,10 +195,10 @@
 
 /* Wide frame for landscape images (Dancers, Singers) */
 .ent-media-frame--wide {
-  max-height: 380px;
+  max-height: 480px;
 }
 .ent-media-frame--wide img {
-  max-height: 380px;
+  max-height: 480px;
 }
 
 /* Side-by-side pair for Brand Ambassadors */
