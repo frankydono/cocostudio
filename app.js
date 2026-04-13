@@ -1,9 +1,16 @@
 // ===== NAV SCROLL =====
 const nav = document.getElementById('nav');
 if (nav) {
+  let ticking = false;
   window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 50);
-  });
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        nav.classList.toggle('scrolled', window.scrollY > 50);
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
 }
 
 // ===== HAMBURGER =====
@@ -117,15 +124,22 @@ if (window.matchMedia('(pointer: fine)').matches) {
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-links a');
 if (sections.length && navLinks.length) {
+  let ticking = false;
   window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(s => {
-      if (window.scrollY >= s.offsetTop - 200) current = s.id;
-    });
-    navLinks.forEach(a => {
-      a.style.color = a.getAttribute('href') === `#${current}` ? '#f0f0ff' : '';
-    });
-  });
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        let current = '';
+        sections.forEach(s => {
+          if (window.scrollY >= s.offsetTop - 200) current = s.id;
+        });
+        navLinks.forEach(a => {
+          a.style.color = a.getAttribute('href') === `#${current}` ? '#f0f0ff' : '';
+        });
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
 }
 
 // ===== SLIDESHOW =====
