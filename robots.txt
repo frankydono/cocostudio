@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.cocostudio.ph/sitemap.xml
+
+# Disallow temporary files
+Disallow: /*.tmp$

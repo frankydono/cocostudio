@@ -61,23 +61,40 @@ if (allStatSections.length) {
 
 // ===== CONTACT FORM =====
 const contactForm = document.getElementById('contactForm');
+const successModal = document.getElementById('successModal');
+const closeModal = document.getElementById('closeModal');
+
 if (contactForm) {
   contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const btn = e.target.querySelector('button[type="submit"]');
     const original = btn.textContent;
-    btn.textContent = 'Preparing Email...';
-    btn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+    btn.textContent = 'Processing...';
+    btn.disabled = true;
     
-    // Open default mail client addressed to the official designated email
+    // Open default mail client
     window.location.href = "mailto:inquiry@cocostudio.ph?subject=" + encodeURIComponent("New Inquiry via CocoStudio Hub");
     
+    // Show success modal
     setTimeout(() => {
+      if (successModal) successModal.classList.add('active');
       btn.textContent = original;
-      btn.style.background = '';
+      btn.disabled = false;
       e.target.reset();
-    }, 3000);
+    }, 800);
   });
+}
+
+if (closeModal && successModal) {
+  closeModal.addEventListener('click', () => {
+    successModal.classList.remove('active');
+  });
+  const overlay = document.querySelector('.success-modal-overlay');
+  if (overlay) {
+    overlay.addEventListener('click', () => {
+      successModal.classList.remove('active');
+    });
+  }
 }
 
 // ===== CURSOR GLOW (desktop only) =====

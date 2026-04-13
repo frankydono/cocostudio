@@ -3,7 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home | cocostudio.ph</title>
+  <title>CocoStudio - Digital Entertainment Solutions | Livestreaming, Design & Events</title>
+  <meta name="description" content="CocoStudio delivers digital entertainment solutions in the Philippines. From livestreaming and photo/video production to creative design, event entertainment, and web development." />
+  <meta name="keywords" content="digital entertainment, livestreaming Philippines, event entertainment, photo video production, creative design, web development, brand marketing" />
+  <link rel="canonical" href="https://www.cocostudio.ph/" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.cocostudio.ph/" />
+  <meta property="og:title" content="CocoStudio - Digital Entertainment Solutions" />
+  <meta property="og:description" content="Blending creativity, technology, and live entertainment to craft experiences that connect with real people in real time." />
+  <meta property="og:image" content="https://www.cocostudio.ph/images/cocologo.png" />
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://www.cocostudio.ph/" />
+  <meta property="twitter:title" content="CocoStudio - Digital Entertainment Solutions" />
+  <meta property="twitter:description" content="Blending creativity, technology, and live entertainment to craft experiences that connect with real people in real time." />
+  <meta property="twitter:image" content="https://www.cocostudio.ph/images/cocologo.png" />
+  
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=League+Spartan:wght@500;700;800&family=Oswald:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 </head>
@@ -344,6 +362,45 @@
       </div>
     </div>
   </footer>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "CocoStudio",
+    "image": "https://www.cocostudio.ph/images/cocologo.png",
+    "description": "Digital entertainment solutions including livestreaming, photo & video production, creative design, event entertainment, and web development.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Symfoni Kamias",
+      "addressLocality": "Quezon City",
+      "addressCountry": "PH"
+    },
+    "telephone": "+639171147814",
+    "email": "inquiry@cocostudio.ph",
+    "url": "https://www.cocostudio.ph",
+    "sameAs": [
+      "https://www.facebook.com/CocoStudioX",
+      "https://www.instagram.com/cocostudio.x/"
+    ],
+    "priceRange": "$$",
+    "openingHours": "Mo-Fr 09:00-18:00"
+  }
+  </script>
+
+  <!-- SUCCESS MODAL -->
+  <div class="success-modal" id="successModal">
+    <div class="success-modal-overlay"></div>
+    <div class="success-modal-content">
+      <div class="success-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h2>Message <span class="text-white">Sent!</span></h2>
+      <p>Thank you for reaching out. Your inquiry has been received, and our team will get back to you as soon as possible.</p>
+      <button class="btn-primary btn-close-modal" id="closeModal">Back to Website</button>
+    </div>
+  </div>
 
   <script src="app.js"></script>
 </body>

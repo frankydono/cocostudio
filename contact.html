@@ -3,7 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact | cocostudio.ph</title>
+  <title>Contact Us - Get In Touch | CocoStudio</title>
+  <meta name="description" content="Contact CocoStudio for digital entertainment solutions. Located in Quezon City, Philippines. Call +63 917-114-7814 or email inquiry@cocostudio.ph" />
+  <link rel="canonical" href="https://www.cocostudio.ph/contact" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.cocostudio.ph/contact" />
+  <meta property="og:title" content="Contact CocoStudio - Let's Talk" />
+  <meta property="og:description" content="Get in touch with CocoStudio for your digital entertainment needs. We're ready to bring your vision to life." />
+  <meta property="og:image" content="https://www.cocostudio.ph/images/cocologo.png" />
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://www.cocostudio.ph/contact" />
+  <meta property="twitter:title" content="Contact CocoStudio - Let's Talk" />
+  <meta property="twitter:description" content="Get in touch with CocoStudio for your digital entertainment needs. We're ready to bring your vision to life." />
+  <meta property="twitter:image" content="https://www.cocostudio.ph/images/cocologo.png" />
+  
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="contact.css" />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -122,6 +139,7 @@
                 <option>Livestreaming</option>
                 <option>Photo &amp; Video Production</option>
                 <option>Promotional &amp; Marketing</option>
+                <option>Web Development</option>
                 <option>Event Production</option>
                 <option>Other</option>
               </select>
@@ -203,6 +221,19 @@
     </div>
   </footer>
 
+  <!-- SUCCESS MODAL -->
+  <div class="success-modal" id="successModal">
+    <div class="success-modal-overlay"></div>
+    <div class="success-modal-content">
+      <div class="success-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h2>Message <span class="text-white">Sent!</span></h2>
+      <p>Thank you for reaching out. Your inquiry has been received, and our team will get back to you as soon as possible.</p>
+      <button class="btn-primary btn-close-modal" id="closeModal">Back to Website</button>
+    </div>
+  </div>
+
   <script src="app.js"></script>
   <script>
     // Char counter
@@ -213,17 +244,37 @@
     }
     // Form submit
     const ctForm = document.getElementById("ctForm");
+    const successModal = document.getElementById("successModal");
+    const closeModal = document.getElementById("closeModal");
+
     if (ctForm) {
       ctForm.addEventListener("submit", (e) => {
         e.preventDefault();
         const btn = ctForm.querySelector("button[type=submit]");
         const orig = btn.textContent;
-        btn.textContent = "Preparing Email...";
-        btn.style.background = "linear-gradient(135deg,#10b981,#059669)";
+        btn.textContent = "Processing...";
+        btn.disabled = true;
         
+        // Open default mail client
         window.location.href = "mailto:inquiry@cocostudio.ph?subject=" + encodeURIComponent("New Inquiry via CocoStudio Hub");
         
-        setTimeout(() => { btn.textContent = orig; btn.style.background = ""; ctForm.reset(); cnt.textContent = "0"; }, 3000);
+        // Show success modal
+        setTimeout(() => {
+          successModal.classList.add("active");
+          btn.textContent = orig;
+          btn.disabled = false;
+          ctForm.reset();
+          if (cnt) cnt.textContent = "0";
+        }, 800);
+      });
+    }
+
+    if (closeModal && successModal) {
+      closeModal.addEventListener("click", () => {
+        successModal.classList.remove("active");
+      });
+      document.querySelector(".success-modal-overlay").addEventListener("click", () => {
+        successModal.classList.remove("active");
       });
     }
   </script>
