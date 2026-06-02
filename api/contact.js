@@ -32,14 +32,18 @@ module.exports = async (req, res) => {
     auth: {
       user: 'franco.cawagas@cocostudio.ph',
       pass: emailPass
-    },
-    tls: {
-      ciphers: 'SSLv3'
     }
   });
 
+  try {
+    await transporter.verify();
+  } catch (verifyErr) {
+    console.error('SMTP verify error:', verifyErr);
+    return res.status(500).json({ error: 'SMTP connection failed', detail: verifyErr.message || verifyErr.code });
+  }
+
   const mailOptions = {
-    from: 'franco.cawagas@cocostudio.ph',
+    from: '"CocoStudio Website" <franco.cawagas@cocostudio.ph>',
     to: 'franco.cawagas@cocostudio.ph',
     replyTo: email,
     subject: `New Inquiry from ${firstName} ${lastName || ''} via CocoStudio Website`,
@@ -138,6 +142,6 @@ ${message || 'No message provided'}
     res.status(200).json({ success: true });
   } catch (error) {
     console.error('Email send error:', error);
-    res.status(500).json({ error: 'Failed to send email' });
+    res.status(500).json({ error: 'Failed to send email', detail: error.message || error.code });
   }
 };
