@@ -24,6 +24,55 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="about.css" />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=League+Spartan:wght@500;700;800&family=Oswald:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Breadcrumb Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.cocostudio.ph/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "About",
+        "item": "https://www.cocostudio.ph/about"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Person Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Franco Cawagas",
+    "jobTitle": "Founder & CEO",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "CocoStudio",
+      "url": "https://www.cocostudio.ph"
+    },
+    "alumniOf": {
+      "@type": "EducationalOrganization",
+      "name": "St. Paul University Quezon City"
+    },
+    "knowsAbout": [
+      "Digital Entertainment",
+      "Event Production",
+      "Livestreaming",
+      "Marketing Strategy",
+      "Brand Development"
+    ],
+    "url": "https://www.cocostudio.ph/about"
+  }
+  </script>
 </head>
 <body>
 

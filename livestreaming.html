@@ -24,6 +24,93 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="livestreaming.css" />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700" rel="stylesheet" />
+
+  <!-- Breadcrumb Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.cocostudio.ph/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Services",
+        "item": "https://www.cocostudio.ph/#services"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Livestreaming",
+        "item": "https://www.cocostudio.ph/livestreaming"
+      }
+    ]
+  }
+  </script>
+
+  <!-- FAQ Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What livestreaming services does CocoStudio offer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "CocoStudio offers event livestreaming, social media livestreaming (Instagram, TikTok, Facebook), and conference/webinar streaming with multi-camera setups and professional production."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you livestream to multiple platforms at once?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. We can simulcast to multiple platforms simultaneously including Facebook Live, YouTube Live, Instagram, and TikTok depending on your event needs."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you provide equipment for livestreaming?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. We provide complete livestreaming equipment including multi-camera setups, professional audio, lighting, and encoding hardware."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Service Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Livestreaming Services",
+    "provider": {
+      "@type": "Organization",
+      "name": "CocoStudio",
+      "url": "https://www.cocostudio.ph"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "Quezon City",
+      "containedInPlace": {
+        "@type": "State",
+        "name": "Metro Manila"
+      }
+    },
+    "description": "Professional livestreaming for corporate events, concerts, brand activations, and virtual conferences. Services include multi-camera setups, social media livestreaming (Instagram, TikTok, Facebook), and webinar/conference streaming.",
+    "url": "https://www.cocostudio.ph/livestreaming",
+    "name": "Livestreaming"
+  }
+  </script>
 </head>
 <body>
 

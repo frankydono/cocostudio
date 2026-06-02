@@ -24,6 +24,93 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="production.css" />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700" rel="stylesheet" />
+
+  <!-- Breadcrumb Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.cocostudio.ph/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Services",
+        "item": "https://www.cocostudio.ph/#services"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Photo & Video Production",
+        "item": "https://www.cocostudio.ph/production"
+      }
+    ]
+  }
+  </script>
+
+  <!-- FAQ Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What types of photography does CocoStudio specialize in?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "CocoStudio specializes in fashion, food, corporate, lifestyle, and product photography, as well as custom pictorials and green screen production."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you offer video editing services?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. We offer expert video editing that transforms raw footage into compelling content with cinematic quality and professional finishing."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you handle product launches?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. We provide product launch coverage including photography, videography, and livestreaming to capture and amplify your launch event."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Service Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Photo and Video Production",
+    "provider": {
+      "@type": "Organization",
+      "name": "CocoStudio",
+      "url": "https://www.cocostudio.ph"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "Quezon City",
+      "containedInPlace": {
+        "@type": "State",
+        "name": "Metro Manila"
+      }
+    },
+    "description": "High-resolution photography and video production across fashion, food, corporate, and lifestyle sectors. Services include product photography, green screen production, custom pictorials, and expert video editing.",
+    "url": "https://www.cocostudio.ph/production",
+    "name": "Photo and Video Production"
+  }
+  </script>
 </head>
 <body>
 

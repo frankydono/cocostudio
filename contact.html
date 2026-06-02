@@ -24,6 +24,70 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="contact.css" />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Breadcrumb Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.cocostudio.ph/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Contact",
+        "item": "https://www.cocostudio.ph/contact"
+      }
+    ]
+  }
+  </script>
+
+  <!-- FAQ Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is CocoStudio's response time for inquiries?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our team aims to respond to all inquiries within 1–2 business days. For urgent requests, we recommend calling +63 917-114-7814 directly."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you offer free consultations?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. We offer free initial consultations to discuss your project needs, goals, and budget. Contact us to schedule a consultation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What information should I include in my inquiry?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Please include your name, contact details, the service you're interested in, event or project date, location, and a brief description of your requirements. The more details you provide, the better we can assist you."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you travel outside Metro Manila?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. While our base is in Quezon City, Metro Manila, we can accommodate projects in other regions of the Philippines depending on the scope and requirements. Travel fees may apply for locations outside Metro Manila."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -182,6 +246,34 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
         Open in Google Maps
       </a>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section class="faq-section" id="faq">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-tag">FAQ</div>
+        <h2>Frequently Asked <span class="gradient-text">Questions</span></h2>
+      </div>
+      <div class="faq-grid">
+        <div class="faq-item reveal">
+          <h3>What is CocoStudio's response time for inquiries?</h3>
+          <p>Our team aims to respond to all inquiries within 1–2 business days. For urgent requests, we recommend calling +63 917-114-7814 directly.</p>
+        </div>
+        <div class="faq-item reveal">
+          <h3>Do you offer free consultations?</h3>
+          <p>Yes. We offer free initial consultations to discuss your project needs, goals, and budget. Contact us to schedule a consultation.</p>
+        </div>
+        <div class="faq-item reveal">
+          <h3>What information should I include in my inquiry?</h3>
+          <p>Please include your name, contact details, the service you're interested in, event or project date, location, and a brief description of your requirements.</p>
+        </div>
+        <div class="faq-item reveal">
+          <h3>Do you travel outside Metro Manila?</h3>
+          <p>Yes. While our base is in Quezon City, Metro Manila, we can accommodate projects in other regions of the Philippines. Travel fees may apply for locations outside Metro Manila.</p>
+        </div>
+      </div>
     </div>
   </section>
 

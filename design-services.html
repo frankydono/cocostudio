@@ -24,6 +24,93 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="design-services.css" />
   <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700;800&family=Oswald:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Breadcrumb Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.cocostudio.ph/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Services",
+        "item": "https://www.cocostudio.ph/#services"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Design Services",
+        "item": "https://www.cocostudio.ph/design-services"
+      }
+    ]
+  }
+  </script>
+
+  <!-- FAQ Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What design services does CocoStudio offer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "CocoStudio offers logo design and branding, promotional materials (posters, flyers, banners), and social media content customized for platforms like Facebook, Instagram, TikTok, and YouTube."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does a branding project take?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Branding projects typically take 2–4 weeks depending on complexity, revisions, and deliverables. Rush projects can be accommodated with advance notice."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you create content for social media?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. We create platform-ready visuals and motion graphics tailored for Facebook, Instagram, TikTok, YouTube, and other social media channels."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Service Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Creative Design Services",
+    "provider": {
+      "@type": "Organization",
+      "name": "CocoStudio",
+      "url": "https://www.cocostudio.ph"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "Quezon City",
+      "containedInPlace": {
+        "@type": "State",
+        "name": "Metro Manila"
+      }
+    },
+    "description": "Creative design solutions including logo design, branding, social media content, and promotional materials including posters, flyers, and banners. Platform-ready visuals for Facebook, Instagram, TikTok, and YouTube.",
+    "url": "https://www.cocostudio.ph/design-services",
+    "name": "Design Services"
+  }
+  </script>
 </head>
 <body>
 

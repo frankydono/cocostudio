@@ -24,6 +24,93 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="entertainment.css" />
   <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700;800&family=Oswald:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Breadcrumb Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.cocostudio.ph/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Services",
+        "item": "https://www.cocostudio.ph/#services"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Entertainment for Events",
+        "item": "https://www.cocostudio.ph/entertainment"
+      }
+    ]
+  }
+  </script>
+
+  <!-- FAQ Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What types of entertainers does CocoStudio provide?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "CocoStudio provides brand ambassadors, professional models, dancers (modern, jazz, hip-hop, ethnic, techno, ballroom), aerialists, singers, musicians, and DJs."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I book multiple entertainers for one event?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. We can provide full entertainment packages with multiple performers tailored to your event theme, audience, and budget."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do your entertainers travel outside Metro Manila?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Our entertainers can travel to events throughout the Philippines. Travel and accommodation fees may apply for locations outside Metro Manila."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Service Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Event Entertainment Services",
+    "provider": {
+      "@type": "Organization",
+      "name": "CocoStudio",
+      "url": "https://www.cocostudio.ph"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "Quezon City",
+      "containedInPlace": {
+        "@type": "State",
+        "name": "Metro Manila"
+      }
+    },
+    "description": "Professional event entertainment for corporate events, brand activations, and private functions. Roster includes brand ambassadors, professional models, dancers (modern, jazz, hip-hop, ethnic, techno, ballroom), aerialists, singers, musicians, and DJs.",
+    "url": "https://www.cocostudio.ph/entertainment",
+    "name": "Entertainment for Events"
+  }
+  </script>
 </head>
 <body>
   <nav class="nav scrolled" id="nav">
