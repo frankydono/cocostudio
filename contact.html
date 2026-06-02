@@ -113,26 +113,26 @@
             <div class="ct-form-row">
               <div class="ct-form-group">
                 <label>First Name <span>*</span></label>
-                <input type="text" placeholder="Juan" required />
+                <input type="text" name="firstName" placeholder="Juan" required />
               </div>
               <div class="ct-form-group">
                 <label>Last Name</label>
-                <input type="text" placeholder="dela Cruz" />
+                <input type="text" name="lastName" placeholder="dela Cruz" />
               </div>
             </div>
             <div class="ct-form-row">
               <div class="ct-form-group">
                 <label>Email Address <span>*</span></label>
-                <input type="email" placeholder="juan@email.com" required />
+                <input type="email" name="email" placeholder="juan@email.com" required />
               </div>
               <div class="ct-form-group">
                 <label>Phone Number <span>*</span></label>
-                <input type="tel" placeholder="+63 917 000 0000" required />
+                <input type="tel" name="phone" placeholder="+63 917 000 0000" required />
               </div>
             </div>
             <div class="ct-form-group">
               <label>Service Interested In</label>
-              <select>
+              <select name="service">
                 <option value="" disabled selected>Select a service...</option>
                 <option>Design Services</option>
                 <option>Entertainment for Events</option>
@@ -146,7 +146,7 @@
             </div>
             <div class="ct-form-group">
               <label>Message</label>
-              <textarea id="ctMessage" placeholder="Tell us about your project, event, or inquiry..." maxlength="1000"></textarea>
+              <textarea id="ctMessage" name="message" placeholder="Tell us about your project, event, or inquiry..." maxlength="1000"></textarea>
               <div class="ct-char-count"><span id="ctCount">0</span> / 1000</div>
             </div>
             <div class="ct-form-submit">
@@ -248,24 +248,37 @@
     const closeModal = document.getElementById("closeModal");
 
     if (ctForm) {
-      ctForm.addEventListener("submit", (e) => {
+      ctForm.addEventListener("submit", async (e) => {
         e.preventDefault();
         const btn = ctForm.querySelector("button[type=submit]");
         const orig = btn.textContent;
-        btn.textContent = "Processing...";
+        btn.textContent = "Sending...";
         btn.disabled = true;
-        
-        // Open default mail client
-        window.location.href = "mailto:inquiry@cocostudio.ph?subject=" + encodeURIComponent("New Inquiry via CocoStudio Hub");
-        
-        // Show success modal
-        setTimeout(() => {
-          successModal.classList.add("active");
+
+        const formData = new FormData(ctForm);
+        const payload = Object.fromEntries(formData.entries());
+
+        try {
+          const res = await fetch("/api/contact", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload)
+          });
+          const data = await res.json();
+
+          if (res.ok && data.success) {
+            successModal.classList.add("active");
+            ctForm.reset();
+            if (cnt) cnt.textContent = "0";
+          } else {
+            alert(data.error || "Failed to send message. Please try again.");
+          }
+        } catch (err) {
+          alert("Network error. Please try again.");
+        } finally {
           btn.textContent = orig;
           btn.disabled = false;
-          ctForm.reset();
-          if (cnt) cnt.textContent = "0";
-        }, 800);
+        }
       });
     }
 

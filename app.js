@@ -66,44 +66,6 @@ if (allStatSections.length) {
   allStatSections.forEach(sec => statsObserver.observe(sec));
 }
 
-// ===== CONTACT FORM =====
-const contactForm = document.getElementById('contactForm');
-const successModal = document.getElementById('successModal');
-const closeModal = document.getElementById('closeModal');
-
-if (contactForm) {
-  contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const btn = e.target.querySelector('button[type="submit"]');
-    const original = btn.textContent;
-    btn.textContent = 'Processing...';
-    btn.disabled = true;
-    
-    // Open default mail client
-    window.location.href = "mailto:inquiry@cocostudio.ph?subject=" + encodeURIComponent("New Inquiry via CocoStudio Hub");
-    
-    // Show success modal
-    setTimeout(() => {
-      if (successModal) successModal.classList.add('active');
-      btn.textContent = original;
-      btn.disabled = false;
-      e.target.reset();
-    }, 800);
-  });
-}
-
-if (closeModal && successModal) {
-  closeModal.addEventListener('click', () => {
-    successModal.classList.remove('active');
-  });
-  const overlay = document.querySelector('.success-modal-overlay');
-  if (overlay) {
-    overlay.addEventListener('click', () => {
-      successModal.classList.remove('active');
-    });
-  }
-}
-
 // ===== CURSOR GLOW (desktop only) =====
 if (window.matchMedia('(pointer: fine)').matches) {
   const glow = document.createElement('div');
