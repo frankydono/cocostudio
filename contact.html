@@ -257,6 +257,7 @@
 
         const formData = new FormData(ctForm);
         const payload = Object.fromEntries(formData.entries());
+        console.log("[Frontend] Form payload:", payload);
 
         try {
           const res = await fetch("/api/contact", {
@@ -264,16 +265,21 @@
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(payload)
           });
+          console.log("[Frontend] Response status:", res.status);
           const data = await res.json();
+          console.log("[Frontend] Response data:", data);
 
           if (res.ok && data.success) {
+            console.log("[Frontend] Email sent. MessageId:", data.messageId);
             successModal.classList.add("active");
             ctForm.reset();
             if (cnt) cnt.textContent = "0";
           } else {
+            console.error("[Frontend] Server returned error:", data);
             alert((data.error || "Failed to send message.") + (data.detail ? "\n\nDetail: " + data.detail : ""));
           }
         } catch (err) {
+          console.error("[Frontend] Network/fetch error:", err);
           alert("Network error. Please try again.");
         } finally {
           btn.textContent = orig;

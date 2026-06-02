@@ -13,15 +13,20 @@ module.exports = async (req, res) => {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
+  console.log('[API /contact] Request received. Method:', req.method);
+  console.log('[API /contact] Body:', req.body);
+
   const { firstName, lastName, email, phone, service, message } = req.body;
 
   if (!firstName || !email || !phone) {
+    console.error('[API /contact] Missing required fields:', { firstName, email, phone });
     return res.status(400).json({ error: 'Missing required fields' });
   }
 
   const emailPass = process.env.EMAIL_PASS;
+  console.log('[API /contact] EMAIL_PASS present:', !!emailPass);
   if (!emailPass) {
-    console.error('EMAIL_PASS environment variable is not set');
+    console.error('[API /contact] EMAIL_PASS environment variable is not set');
     return res.status(500).json({ error: 'Server email configuration error' });
   }
 
@@ -36,9 +41,10 @@ module.exports = async (req, res) => {
   });
 
   try {
-    await transporter.verify();
+    const verifyResult = await transporter.verify();
+    console.log('[API /contact] SMTP verify result:', verifyResult);
   } catch (verifyErr) {
-    console.error('SMTP verify error:', verifyErr);
+    console.error('[API /contact] SMTP verify error:', verifyErr);
     return res.status(500).json({ error: 'SMTP connection failed', detail: verifyErr.message || verifyErr.code });
   }
 
@@ -138,10 +144,12 @@ ${message || 'No message provided'}
   };
 
   try {
-    await transporter.sendMail(mailOptions);
-    res.status(200).json({ success: true });
+    const info = await transporter.sendMail(mailOptions);
+    console.log('[API /contact] Email sent successfully. MessageId:', info.messageId);
+    console.log('[API /contact] Server response:', info.response);
+    res.status(200).json({ success: true, messageId: info.messageId });
   } catch (error) {
-    console.error('Email send error:', error);
+    console.error('[API /contact] Email send error:', error);
     res.status(500).json({ error: 'Failed to send email', detail: error.message || error.code });
   }
 };
