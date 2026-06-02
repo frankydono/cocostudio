@@ -271,7 +271,7 @@
             ctForm.reset();
             if (cnt) cnt.textContent = "0";
           } else {
-            alert(data.error || "Failed to send message. Please try again.");
+            alert((data.error || "Failed to send message.") + (data.detail ? "\n\nDetail: " + data.detail : ""));
           }
         } catch (err) {
           alert("Network error. Please try again.");
