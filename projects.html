@@ -488,7 +488,31 @@
 
   <script src="app.js"></script>
   <script>
-    // Tab switching
+    // ── LAZY LOAD SETUP ──────────────────────────────────────────────
+    // Convert all non-active tab images to use data-src so they don't load upfront
+    document.querySelectorAll('.pr-tab-panel:not(.active) img').forEach(img => {
+      if (img.src) { img.dataset.src = img.src; img.removeAttribute('src'); }
+    });
+
+    // IntersectionObserver: load image when it scrolls into view
+    const imgObserver = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          if (img.dataset.src) { img.src = img.dataset.src; delete img.dataset.src; }
+          obs.unobserve(img);
+        }
+      });
+    }, { rootMargin: '200px' });
+
+    function observePanel(panel) {
+      panel.querySelectorAll('img[data-src]').forEach(img => imgObserver.observe(img));
+    }
+
+    // Observe the initially active tab immediately
+    observePanel(document.querySelector('.pr-tab-panel.active'));
+
+    // ── TAB SWITCHING ────────────────────────────────────────────────
     const tabs = document.querySelectorAll('.pr-tab');
     const panels = document.querySelectorAll('.pr-tab-panel');
 
@@ -497,11 +521,13 @@
         tabs.forEach(t => t.classList.remove('active'));
         panels.forEach(p => p.classList.remove('active'));
         tab.classList.add('active');
-        document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+        const panel = document.getElementById('tab-' + tab.dataset.tab);
+        panel.classList.add('active');
+        observePanel(panel); // lazy-load images in newly activated tab
       });
     });
 
-    // Lightbox — scoped to active tab panel
+    // ── LIGHTBOX ─────────────────────────────────────────────────────
     const lightbox = document.getElementById('lightbox');
     const lbImg = document.getElementById('lbImg');
     const lbCounter = document.getElementById('lbCounter');
@@ -517,23 +543,21 @@
     });
 
     function openLightbox() {
-      lbImg.src = allImgs[currentIdx].src;
+      const img = allImgs[currentIdx];
+      lbImg.src = img.src || img.dataset.src;
       lbCounter.textContent = (currentIdx + 1) + ' / ' + allImgs.length;
       lightbox.classList.add('open');
       document.body.style.overflow = 'hidden';
     }
 
     document.getElementById('lbClose').addEventListener('click', () => {
-      lightbox.classList.remove('open');
-      document.body.style.overflow = '';
+      lightbox.classList.remove('open'); document.body.style.overflow = '';
     });
     document.getElementById('lbPrev').addEventListener('click', () => {
-      currentIdx = (currentIdx - 1 + allImgs.length) % allImgs.length;
-      openLightbox();
+      currentIdx = (currentIdx - 1 + allImgs.length) % allImgs.length; openLightbox();
     });
     document.getElementById('lbNext').addEventListener('click', () => {
-      currentIdx = (currentIdx + 1) % allImgs.length;
-      openLightbox();
+      currentIdx = (currentIdx + 1) % allImgs.length; openLightbox();
     });
     lightbox.addEventListener('click', (e) => {
       if (e.target === lightbox) { lightbox.classList.remove('open'); document.body.style.overflow = ''; }
