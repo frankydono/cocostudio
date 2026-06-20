@@ -38,9 +38,51 @@
 .pr-gallery-section { padding: 100px 0; }
 .pr-gallery-section--alt { background: var(--bg2); }
 
-.pr-gallery-header { margin-bottom: 48px; }
+.pr-gallery-header { margin-bottom: 40px; }
 .pr-gallery-header .section-tag { display: inline-block; margin-bottom: 12px; }
 .pr-gallery-header h2 { font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 700; }
+
+/* ---- TABS ---- */
+.pr-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  margin-bottom: 56px;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+.pr-tab {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--muted);
+  padding: 14px 24px;
+  margin-bottom: -1px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease;
+  white-space: nowrap;
+  font-family: inherit;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  position: relative;
+}
+.pr-tab:hover {
+  color: var(--fg);
+}
+.pr-tab.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* ---- TAB PANELS ---- */
+.pr-tab-panel {
+  display: none;
+  animation: tabFadeIn 0.3s ease;
+}
+.pr-tab-panel.active { display: block; }
+@keyframes tabFadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
 /* Masonry-style grid */
 .pr-grid {
@@ -56,14 +98,12 @@
   margin-bottom: 10px;
   display: block;
 }
-.pr-grid-item.landscape { aspect-ratio: unset; }
-.pr-grid-item.square { aspect-ratio: unset; }
 
 .pr-grid-item img {
   width: 100%;
   height: auto;
   display: block;
-  object-fit: contain;
+  object-fit: cover;
   transition: transform 0.5s ease;
 }
 .pr-grid-item:hover img { transform: scale(1.04); }
@@ -124,6 +164,35 @@
 .pr-cta-inner .section-tag { display: inline-block; margin-bottom: 16px; }
 .pr-cta-inner h2 { font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 700; margin-bottom: 20px; line-height: 1.15; }
 .pr-cta-inner p { color: var(--muted); font-size: 1.05rem; line-height: 1.8; margin-bottom: 40px; }
+
+/* ---- CLIENT BLOCKS ---- */
+.pr-client-block {
+  margin-bottom: 60px;
+}
+.pr-client-block:last-child { margin-bottom: 0; }
+.pr-client-name {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* ---- EMPTY TAB STATE ---- */
+.pr-tab-empty {
+  display: flex; align-items: center; justify-content: center;
+  min-height: 200px;
+  border: 1px dashed var(--border);
+  border-radius: 16px;
+}
+.pr-tab-empty span {
+  color: var(--muted);
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+}
 
 /* ---- RESPONSIVE ---- */
 @media (max-width: 900px) { .pr-grid { columns: 2; } }
