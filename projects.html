@@ -689,32 +689,22 @@
 
     // ── MARQUEE ───────────────────────────────────────────────────────
     const marqueeTrack = document.querySelector('.wd-marquee-track');
+    let marqueeStarted = false;
     function startMarquee() {
-      if (!marqueeTrack) return;
-      const imgs = marqueeTrack.querySelectorAll('img');
-      let loaded = 0;
-      const total = imgs.length;
-      function onLoad() {
-        loaded++;
-        if (loaded >= total) marqueeTrack.style.animationPlayState = 'running';
-      }
-      imgs.forEach(img => {
-        if (img.complete && img.naturalWidth > 0) { onLoad(); }
-        else { img.addEventListener('load', onLoad); img.addEventListener('error', onLoad); }
-      });
+      if (!marqueeTrack || marqueeStarted) return;
+      marqueeStarted = true;
+      marqueeTrack.style.animationPlayState = 'running';
     }
-    // Start if web dev tab is already active, otherwise wait for tab click
-    if (document.querySelector('.pr-tab-panel#tab-webdev.active')) startMarquee();
+    // Start if web dev tab is already active
+    if (document.querySelector('#tab-webdev.active')) startMarquee();
 
-    // Desktop hover pause (not on touch)
+    // Desktop hover pause only (never pause on touch)
     if (marqueeTrack) {
       const outer = marqueeTrack.closest('.wd-marquee-outer');
       let isTouchDevice = false;
       outer.addEventListener('touchstart', () => { isTouchDevice = true; }, { passive: true, once: true });
       outer.addEventListener('mouseenter', () => { if (!isTouchDevice) marqueeTrack.style.animationPlayState = 'paused'; });
-      outer.addEventListener('mouseleave', () => {
-        if (!isTouchDevice) marqueeTrack.style.animationPlayState = 'running';
-      });
+      outer.addEventListener('mouseleave', () => { marqueeTrack.style.animationPlayState = 'running'; });
     }
 
     // Touch swipe — track start time for velocity
