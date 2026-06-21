@@ -47,7 +47,7 @@
   display: flex;
   flex-wrap: nowrap;
   gap: 0;
-  margin-bottom: 56px;
+  margin-bottom: 72px;
   border-bottom: 1px solid var(--border);
   position: relative;
   overflow-x: auto;
@@ -70,17 +70,18 @@
   border: none;
   border-bottom: 2px solid transparent;
   color: var(--muted);
-  padding: 14px 24px;
+  padding: 14px 22px;
   margin-bottom: -1px;
-  font-size: 0.82rem;
+  font-size: 0.72rem;
   font-weight: 600;
   cursor: pointer;
   transition: color 0.2s ease, border-color 0.2s ease;
   white-space: nowrap;
   font-family: inherit;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   position: relative;
+  flex-shrink: 0;
 }
 .pr-tab:hover {
   color: var(--fg);
@@ -276,6 +277,13 @@
   padding-top: 48px;
   border-top: 1px solid var(--border);
 }
+.wd-clients-top {
+  padding-top: 0;
+  border-top: none;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 48px;
+  margin-bottom: 56px;
+}
 .wd-clients-label {
   text-align: center;
   font-size: 0.72rem;
@@ -309,9 +317,9 @@
   flex-shrink: 0;
 }
 .wd-logo-item img {
-  height: 52px;
+  height: 120px;
   width: auto;
-  max-width: 140px;
+  max-width: 220px;
   object-fit: contain;
   filter: grayscale(1) brightness(1.6);
   opacity: 0.55;
@@ -370,7 +378,7 @@
 }
 @media (max-width: 600px) {
   .pr-gallery-section { padding: 48px 0; }
-  .pr-tab { padding: 12px 16px; font-size: 0.75rem; }
+  .pr-tab { padding: 10px 12px; font-size: 0.68rem; }
   .pr-client-block { margin-bottom: 32px; }
   .pr-client-name { font-size: 0.82rem; margin-bottom: 10px; padding-bottom: 8px; }
 
