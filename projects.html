@@ -433,23 +433,23 @@
           <p class="wd-clients-label">Trusted by</p>
           <div class="wd-marquee-outer">
             <div class="wd-marquee-track">
-              <div class="wd-logo-item"><img src="images/logo/Balagtas_Bulacan.png" alt="Balagtas Bulacan"/></div>
-              <div class="wd-logo-item"><img src="images/logo/DOH_Logo.png" alt="DOH"/></div>
-              <div class="wd-logo-item"><img src="images/logo/calumpit.png" alt="Calumpit"/></div>
-              <div class="wd-logo-item"><img src="images/logo/iba.png" alt="IBA"/></div>
-              <div class="wd-logo-item"><img src="images/logo/image (2).png" alt="Client"/></div>
-              <div class="wd-logo-item"><img src="images/logo/images.png" alt="Client"/></div>
-              <div class="wd-logo-item"><img src="images/logo/lvmh-logo-png_seeklogo-86482.png" alt="LVMH"/></div>
-              <div class="wd-logo-item"><img src="images/logo/ptsilogo.png" alt="PTSI"/></div>
+              <div class="wd-logo-item"><img src="images/logo/Balagtas_Bulacan.png" alt="Balagtas Bulacan" loading="eager"/></div>
+              <div class="wd-logo-item"><img src="images/logo/DOH_Logo.png" alt="DOH" loading="eager"/></div>
+              <div class="wd-logo-item"><img src="images/logo/calumpit.png" alt="Calumpit" loading="eager"/></div>
+              <div class="wd-logo-item"><img src="images/logo/iba.png" alt="IBA" loading="eager"/></div>
+              <div class="wd-logo-item"><img src="images/logo/tocdots.png" alt="To C Dots" loading="eager"/></div>
+              <div class="wd-logo-item"><img src="images/logo/images.png" alt="Client" loading="eager"/></div>
+              <div class="wd-logo-item"><img src="images/logo/lvmh-logo-png_seeklogo-86482.png" alt="LVMH" loading="eager"/></div>
+              <div class="wd-logo-item"><img src="images/logo/ptsilogo.png" alt="PTSI" loading="eager"/></div>
               <!-- Duplicate for seamless loop -->
-              <div class="wd-logo-item"><img src="images/logo/Balagtas_Bulacan.png" alt="Balagtas Bulacan"/></div>
-              <div class="wd-logo-item"><img src="images/logo/DOH_Logo.png" alt="DOH"/></div>
-              <div class="wd-logo-item"><img src="images/logo/calumpit.png" alt="Calumpit"/></div>
-              <div class="wd-logo-item"><img src="images/logo/iba.png" alt="IBA"/></div>
-              <div class="wd-logo-item"><img src="images/logo/image (2).png" alt="Client"/></div>
-              <div class="wd-logo-item"><img src="images/logo/images.png" alt="Client"/></div>
-              <div class="wd-logo-item"><img src="images/logo/lvmh-logo-png_seeklogo-86482.png" alt="LVMH"/></div>
-              <div class="wd-logo-item"><img src="images/logo/ptsilogo.png" alt="PTSI"/></div>
+              <div class="wd-logo-item"><img src="images/logo/Balagtas_Bulacan.png" alt="Balagtas Bulacan" loading="eager"/></div>
+              <div class="wd-logo-item"><img src="images/logo/DOH_Logo.png" alt="DOH" loading="eager"/></div>
+              <div class="wd-logo-item"><img src="images/logo/calumpit.png" alt="Calumpit" loading="eager"/></div>
+              <div class="wd-logo-item"><img src="images/logo/iba.png" alt="IBA" loading="eager"/></div>
+              <div class="wd-logo-item"><img src="images/logo/tocdots.png" alt="To C Dots" loading="eager"/></div>
+              <div class="wd-logo-item"><img src="images/logo/images.png" alt="Client" loading="eager"/></div>
+              <div class="wd-logo-item"><img src="images/logo/lvmh-logo-png_seeklogo-86482.png" alt="LVMH" loading="eager"/></div>
+              <div class="wd-logo-item"><img src="images/logo/ptsilogo.png" alt="PTSI" loading="eager"/></div>
             </div>
           </div>
         </div>
@@ -676,6 +676,16 @@
       if (e.key === 'ArrowLeft') navigate(-1);
       if (e.key === 'ArrowRight') navigate(1);
     });
+
+    // ── MARQUEE: pause on desktop hover only, never pause on touch ───
+    const marqueeTrack = document.querySelector('.wd-marquee-track');
+    if (marqueeTrack) {
+      const outer = marqueeTrack.closest('.wd-marquee-outer');
+      let isTouchDevice = false;
+      outer.addEventListener('touchstart', () => { isTouchDevice = true; }, { passive: true, once: true });
+      outer.addEventListener('mouseenter', () => { if (!isTouchDevice) marqueeTrack.style.animationPlayState = 'paused'; });
+      outer.addEventListener('mouseleave', () => { marqueeTrack.style.animationPlayState = 'running'; });
+    }
 
     // Touch swipe — track start time for velocity
     let tsX = 0, tsT = 0;
