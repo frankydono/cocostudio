@@ -429,10 +429,10 @@
 
   <!-- LIGHTBOX -->
   <div class="pr-lightbox" id="lightbox">
-    <button class="pr-lightbox-close" id="lbClose">&#x2715;</button>
-    <button class="pr-lightbox-prev" id="lbPrev">&#8592;</button>
+    <button class="pr-lightbox-close" id="lbClose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    <button class="pr-lightbox-prev" id="lbPrev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
     <img class="pr-lightbox-img" id="lbImg" src="" alt="Project" />
-    <button class="pr-lightbox-next" id="lbNext">&#8594;</button>
+    <button class="pr-lightbox-next" id="lbNext"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
     <div class="pr-lightbox-counter" id="lbCounter"></div>
   </div>
 
@@ -523,7 +523,7 @@
         tab.classList.add('active');
         const panel = document.getElementById('tab-' + tab.dataset.tab);
         panel.classList.add('active');
-        observePanel(panel); // lazy-load images in newly activated tab
+        observePanel(panel);
       });
     });
 
@@ -542,32 +542,54 @@
       });
     });
 
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function showImage(idx) {
+      lbImg.classList.add('lb-fade');
+      setTimeout(() => {
+        const img = allImgs[idx];
+        lbImg.src = img.src || img.dataset.src;
+        lbCounter.textContent = (idx + 1) + ' / ' + allImgs.length;
+        lbImg.classList.remove('lb-fade');
+      }, 160);
+    }
+
     function openLightbox() {
-      const img = allImgs[currentIdx];
-      lbImg.src = img.src || img.dataset.src;
-      lbCounter.textContent = (currentIdx + 1) + ' / ' + allImgs.length;
+      showImage(currentIdx);
       lightbox.classList.add('open');
       document.body.style.overflow = 'hidden';
     }
 
-    document.getElementById('lbClose').addEventListener('click', () => {
-      lightbox.classList.remove('open'); document.body.style.overflow = '';
-    });
-    document.getElementById('lbPrev').addEventListener('click', () => {
-      currentIdx = (currentIdx - 1 + allImgs.length) % allImgs.length; openLightbox();
-    });
-    document.getElementById('lbNext').addEventListener('click', () => {
-      currentIdx = (currentIdx + 1) % allImgs.length; openLightbox();
-    });
+    function navigate(dir) {
+      currentIdx = (currentIdx + dir + allImgs.length) % allImgs.length;
+      showImage(currentIdx);
+    }
+
+    document.getElementById('lbClose').addEventListener('click', closeLightbox);
+    document.getElementById('lbPrev').addEventListener('click', () => navigate(-1));
+    document.getElementById('lbNext').addEventListener('click', () => navigate(1));
+
     lightbox.addEventListener('click', (e) => {
-      if (e.target === lightbox) { lightbox.classList.remove('open'); document.body.style.overflow = ''; }
+      if (e.target === lightbox) closeLightbox();
     });
     document.addEventListener('keydown', (e) => {
       if (!lightbox.classList.contains('open')) return;
-      if (e.key === 'Escape') { lightbox.classList.remove('open'); document.body.style.overflow = ''; }
-      if (e.key === 'ArrowLeft') { currentIdx = (currentIdx - 1 + allImgs.length) % allImgs.length; openLightbox(); }
-      if (e.key === 'ArrowRight') { currentIdx = (currentIdx + 1) % allImgs.length; openLightbox(); }
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') navigate(-1);
+      if (e.key === 'ArrowRight') navigate(1);
     });
+
+    // Touch swipe
+    let tsX = 0;
+    lightbox.addEventListener('touchstart', (e) => { tsX = e.touches[0].clientX; }, { passive: true });
+    lightbox.addEventListener('touchend', (e) => {
+      const dx = e.changedTouches[0].clientX - tsX;
+      if (Math.abs(dx) < 40) return;
+      navigate(dx < 0 ? 1 : -1);
+    }, { passive: true });
   </script>
 </body>
 </html>
