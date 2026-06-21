@@ -313,6 +313,7 @@
   gap: 64px;
   width: max-content;
   animation: wd-scroll 32s linear infinite;
+  animation-play-state: paused;
   will-change: transform;
 }
 @keyframes wd-scroll {

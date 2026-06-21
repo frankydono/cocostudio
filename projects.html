@@ -23,6 +23,15 @@
   
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="projects.css" />
+  <!-- Preload logos so they're ready when Web Dev tab opens -->
+  <link rel="preload" as="image" href="images/logo/Balagtas_Bulacan.png"/>
+  <link rel="preload" as="image" href="images/logo/DOH_Logo.png"/>
+  <link rel="preload" as="image" href="images/logo/calumpit.png"/>
+  <link rel="preload" as="image" href="images/logo/iba.png"/>
+  <link rel="preload" as="image" href="images/logo/tocdots.png"/>
+  <link rel="preload" as="image" href="images/logo/images.png"/>
+  <link rel="preload" as="image" href="images/logo/lvmh-logo-png_seeklogo-86482.png"/>
+  <link rel="preload" as="image" href="images/logo/ptsilogo.png"/>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700" rel="stylesheet" />
 </head>
 <body>
@@ -614,6 +623,7 @@
         const panel = document.getElementById('tab-' + tab.dataset.tab);
         panel.classList.add('active');
         observePanel(panel);
+        if (tab.dataset.tab === 'webdev') startMarquee();
       });
     });
 
@@ -677,14 +687,34 @@
       if (e.key === 'ArrowRight') navigate(1);
     });
 
-    // ── MARQUEE: pause on desktop hover only, never pause on touch ───
+    // ── MARQUEE ───────────────────────────────────────────────────────
     const marqueeTrack = document.querySelector('.wd-marquee-track');
+    function startMarquee() {
+      if (!marqueeTrack) return;
+      const imgs = marqueeTrack.querySelectorAll('img');
+      let loaded = 0;
+      const total = imgs.length;
+      function onLoad() {
+        loaded++;
+        if (loaded >= total) marqueeTrack.style.animationPlayState = 'running';
+      }
+      imgs.forEach(img => {
+        if (img.complete && img.naturalWidth > 0) { onLoad(); }
+        else { img.addEventListener('load', onLoad); img.addEventListener('error', onLoad); }
+      });
+    }
+    // Start if web dev tab is already active, otherwise wait for tab click
+    if (document.querySelector('.pr-tab-panel#tab-webdev.active')) startMarquee();
+
+    // Desktop hover pause (not on touch)
     if (marqueeTrack) {
       const outer = marqueeTrack.closest('.wd-marquee-outer');
       let isTouchDevice = false;
       outer.addEventListener('touchstart', () => { isTouchDevice = true; }, { passive: true, once: true });
       outer.addEventListener('mouseenter', () => { if (!isTouchDevice) marqueeTrack.style.animationPlayState = 'paused'; });
-      outer.addEventListener('mouseleave', () => { marqueeTrack.style.animationPlayState = 'running'; });
+      outer.addEventListener('mouseleave', () => {
+        if (!isTouchDevice) marqueeTrack.style.animationPlayState = 'running';
+      });
     }
 
     // Touch swipe — track start time for velocity
